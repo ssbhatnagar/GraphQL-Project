@@ -12,12 +12,12 @@ type Review{
 }
 type Author{
     id: ID!
-    name: String
-    verfied: Boolean!
+    name: String!
+    verfied: Boolean
 }
 
-type query{
-    reviews : [Reviews]
+type Query{
+    reviews: [Review]
     games: [Game]
     authors: [Author]
 }

@@ -1,11 +1,28 @@
-import {AppoloServer} from '@apollo/server'
+import {ApolloServer} from '@apollo/server'
 import { startStandaloneServer} from '@apollo/server/standalone'
 // importing types
-import { typeDefs } from './schema'
+import { typeDefs } from './schema.js'
+// importing db
+import db from './_db.js'
+
+const resolvers = {
+    Query:{
+        games(){
+            return db.games
+        },
+        authors(){
+            return db.authors
+        },
+        reviews(){
+            return db.reviews
+        }
+    }
+}
 
 // server setup
-const server = new AppoloServer({
-    typeDefs
+const server = new ApolloServer({
+    typeDefs, 
+    resolvers
 })
 
 const {url} = await startStandaloneServer(server, {
