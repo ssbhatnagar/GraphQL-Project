@@ -37,3 +37,26 @@ type query{
 
 --------- RESOLVER FUNCTION ------------
 
+It tells what data to be returned from the data base, in the resolver function we can create function which will return the data so in our project we have this query under resolver function 
+Each function can further have 3 arguments (that are passed in review as below) 
+
+1. parent - it refers to parent resolver in the resolver chain
+2. args - if you need to pass any query variable
+3. context - used for supplying context value across all our resolvers like in authentication
+
+if you need to use args only then you need to pass _ for the first parameter
+
+Query:{
+        games(){
+            return db.games
+        },
+        authors(){
+            return db.authors
+        },
+        reviews(){
+            return db.reviews
+        },
+        review(parent, args, context){
+            return
+        }
+    }
