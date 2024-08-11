@@ -25,7 +25,31 @@ const resolvers = {
         review(_, args){
             return db.reviews.find((review)=> review.id === args.id)
         }
+    },
+    Game:{
+        reviews(parent){
+            // here each review item in reviews is called as r
+            return db.reviews.filter((r) => r.game_id === parent.id)
+        }
+    },
+    Author:{
+        reviews(parent){
+            // here each review item in reviews is called as r
+            return db.reviews.filter((r) => r.author_id === parent.id)
+        }
+    },
+    Review:{
+        author(parent){
+            // here each author in authors is called as a
+            return db.authors.find((a) => a.id === parent.author_id)
+        },
+        game(parent){
+            // here each game in gsames is called as g
+            return db.games.find((g) => g.id === parent.game_id)
+        }
+
     }
+
 }
 
 // server setup
