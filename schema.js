@@ -32,13 +32,19 @@ export const typeDefs = `#graphql
   type Mutation{
     addGame(game: AddGameInput!): Game
     deleteGame(id: ID!) : [Game]
+    updateGame(id: ID!, edits: EditGameInput!): Game
     
     }
-  
+  """ here the input is used to gather all the parameters that are needed to be passed for 
+  a mutation """
   input AddGameInput {
         title: String!,
         platform: [String!]!
-    },
+    }
+    input EditGameInput {
+        title: String,
+        platform: [String!]
+    }
 
 
 `;
