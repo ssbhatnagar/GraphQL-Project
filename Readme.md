@@ -2,7 +2,7 @@ This file is the step by step instructions and the crux of how this project is m
 
 I followed this lecture from [youtube](https://www.youtube.com/watch?v=5199E50O7SI)
 
-------- APOLLO SERVER POINTS ----------
+<h2> APOLLO SERVER POINTS </h2>
 
 Apollo server takes object as an arguement that object expects two properties
 
@@ -12,7 +12,7 @@ Apollo server takes object as an arguement that object expects two properties
 2. resolver - bunch of resolver functions that determines how we respond
    to queries for different data on the graph
 
--------- GRAPHQL SCHEMA POINTS ----------
+<h2> GRAPHQL SCHEMA POINTS </h2>
 
 Built in GraphQL provides 5 basic scalar types that we can use they are
 
@@ -44,12 +44,12 @@ Schema Definition
 
 - The schema typically starts with a `schema` definition, which specifies the root types for the query, mutation, and subscription operations.
 
-graphql
-schema {
-query: Query
-mutation: Mutation
-subscription: Subscription
-}
+       graphql
+            schema {
+               query: Query
+               mutation: Mutation
+               subscription: Subscription
+            }
 
 - This section tells you the entry points for the API.
 
@@ -83,7 +83,7 @@ subscription: Subscription
        		ACTIVE
        		INACTIVE
       		 BANNED
-     }
+         }
 
 
     2.4 Interfaces: Defines a list of fields that a type must implement.
@@ -95,60 +95,63 @@ subscription: Subscription
 
      - Any type implementing `Node` must have an `id` field of type `ID!`.
 
-    2.4 Unions: A union type can represent multiple types.
+    2.5 Unions: A union type can represent multiple types.
 
-     graphql
-     	union SearchResult = User | Post | Comment
+         graphql
+        	union SearchResult = User | Post | Comment
 
 
-    2.4 Input Types: These are used as arguments in mutations or queries.
+    2.6 Input Types: These are used as arguments in mutations or queries.
 
-     graphql
-     	input CreateUserInput {
+        graphql
+           	input CreateUserInput {
        		name: String!
       		 email: String!
-     }
+        }
 
-3. Queries
+4. Queries
 
    - Queries define the read operations. The root `Query` type lists all possible queries.
-     graphql
-     type Query {
-     user(id: ID!): User
-     users: [User]
-     }
+   
+          graphql
+           type Query {
+              user(id: ID!): User
+              users: [User]
+           }
 
      - `user(id: ID!)`: Fetches a single `User` by ID.
      - `users`: Fetches a list of `User` objects.
 
-4. Mutations
+5. Mutations
 
    - Mutations define the write operations, such as creating, updating, or deleting data.
-     graphql
-     type Mutation {
-     createUser(input: CreateUserInput!): User
-     deleteUser(id: ID!): Boolean
-     }
+   
+         graphql
+           type Mutation {
+              createUser(input: CreateUserInput!): User
+              deleteUser(id: ID!): Boolean
+           }
 
      - `createUser(input: CreateUserInput!)`: Creates a new user and returns the `User` object.
      - `deleteUser(id: ID!)`: Deletes a user and returns a `Boolean` indicating success.
 
-5. Subscriptions
+6. Subscriptions
 
    - Subscriptions allow clients to listen to real-time updates.
-     graphql
-     type Subscription {
-     userCreated: User
-     }
+
+           graphql
+              type Subscription {
+              userCreated: User
+           }
 
      - `userCreated`: Triggers when a new `User` is created.
 
-6. Directives
+7. Directives
 
    - Directives are special annotations that can modify the execution of fields or fragments.
 
-graphql
-directive @deprecated(reason: String) on FIELD_DEFINITION | ENUM_VALUE
+           graphql
+              directive @deprecated(reason: String) on FIELD_DEFINITION | ENUM_VALUE
 
      - `@deprecated`: Marks a field or enum value as deprecated.
 
@@ -188,7 +191,7 @@ Steps to Read:
 
 Once you're familiar with these elements, you can easily navigate and understand the structure and capabilities of any GraphQL API.
 
---------- RESOLVER FUNCTION ------------
+<h2> RESOLVER FUNCTION </h2>
 
 It tells what data to be returned from the data base, in the resolver function we can create function which will return the data so in our project we have this query under resolver function
 Each function can further have 3 arguments (that are passed in review as below)
