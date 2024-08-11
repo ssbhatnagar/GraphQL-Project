@@ -46,17 +46,4 @@ Each function can further have 3 arguments (that are passed in review as below)
 
 if you need to use args only then you need to pass _ for the first parameter
 
-Query:{
-        games(){
-            return db.games
-        },
-        authors(){
-            return db.authors
-        },
-        reviews(){
-            return db.reviews
-        },
-        review(parent, args, context){
-            return
-        }
-    }
+<img width="200" alt="image" src="https://github.com/user-attachments/assets/e352ebd9-1a2c-46c3-9ff4-239a507033b7">
