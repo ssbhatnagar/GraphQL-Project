@@ -51,6 +51,7 @@ const resolvers = {
     },
     Mutation:{
         deleteGame(_, args){
+            // here g reprents a particular game in games db
             db.games = db.games.filter((g) => g.id !== args.id)
             return db.games
         },
@@ -61,6 +62,22 @@ const resolvers = {
             }
             db.games.push(game)
             return game
+        },
+        updateGame(_,args){
+            /* here g reprents a particular game in games db
+            the piece of code below will find out the particluar game through the Id if it is found
+            it will override the new changes into it and will return, if it does not match it will return
+            the original content.
+            In the end of update mutation, it will return the game based on the id provided.
+            */
+            db.games = db.games.map((g) =>{
+                if (g.id === args.id){
+                    return {...g, ...args.edits}
+                }
+                return g
+            })
+            return db.games.find((g) => g.id === args.id)
+
         }
     },
 }
