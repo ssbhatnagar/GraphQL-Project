@@ -24,7 +24,7 @@ Built in GraphQL provides 5 basic scalar types that we can use they are
 
 - [String] - it is used to define an array of string
 - ! - this is used to define required field in the schema
-- [String!]! - it defines that the filed platform cannot be empty and also the array of the
+- [String!]! - it defines that the field platform cannot be empty and also the array of the
   string cannot be empty
 
 every graphql schema have a special tag which is not oprional it is called as query
