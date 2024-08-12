@@ -30,11 +30,11 @@ Built in GraphQL provides 5 basic scalar types that we can use they are
 every graphql schema have a special tag which is not oprional it is called as query
 its job is to define the entry pints to the graph and specify the return type of those entry points
 
-type query{
-reviews : [Reviews] - the entry point is reviews and response is list of all Reviews
-games: [Game] - the entry point is games and response is list of all Game
-authors: [Author] - the entry point is authors and response is list of all Author
-}
+     type query{
+      reviews : [Reviews] - the entry point is reviews and response is list of all Reviews
+      games: [Game] - the entry point is games and response is list of all Game
+      authors: [Author] - the entry point is authors and response is list of all Author
+      }
 
 Follow the below steps to get to know about any schema of grapgQL (follow this - [doc](https://www.apollographql.com/docs/apollo-server/schema/schema/))
 
